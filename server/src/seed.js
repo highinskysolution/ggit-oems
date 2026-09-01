@@ -18,10 +18,26 @@ export const seedDatabase = async () => {
       Result.deleteMany({}),
     ]);
 
-    // 1. Create Master Admin Account (Controller of Examinations)
+    // 1. Create Master Admin Accounts (Controller of Examinations)
     const adminUser = await User.create({
       name: 'Gagan Moolya (Admin)',
       email: 'admin@oems.com',
+      password: 'admin123',
+      role: 'admin',
+      department: 'Examination Control Division',
+    });
+
+    await User.create({
+      name: 'Shreyas Jha (Admin)',
+      email: 'shreyas.admin@oems.com',
+      password: 'admin123',
+      role: 'admin',
+      department: 'Examination Control Division',
+    });
+
+    await User.create({
+      name: 'Akash Gupta (Admin)',
+      email: 'akash.admin@oems.com',
       password: 'admin123',
       role: 'admin',
       department: 'Examination Control Division',
