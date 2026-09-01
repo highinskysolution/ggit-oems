@@ -1,13 +1,30 @@
 {
   "name": "oems-root",
   "version": "1.0.0",
-  "description": "Online Examination Management System (OEMS) - MERN Stack Academic Project",
+  "description": "Online Examination Management System (OEMS) - GG Institute of Technology",
+  "type": "module",
   "scripts": {
+    "dev": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
     "server": "npm --prefix server start",
     "client": "npm --prefix client run dev",
     "seed": "npm --prefix server run seed"
   },
-  "keywords": ["mern", "examination-system", "bca", "software-engineering", "ieee-830"],
-  "author": "BCA Software Engineering",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb-memory-server": "^10.1.4",
+    "mongoose": "^8.9.5"
+  },
+  "keywords": [
+    "mern",
+    "examination-system",
+    "ggit",
+    "software-engineering"
+  ],
+  "author": "GGIT",
   "license": "ISC"
 }
