@@ -1,0 +1,13 @@
+{
+  "name": "oems-root",
+  "version": "1.0.0",
+  "description": "Online Examination Management System (OEMS) - MERN Stack Academic Project",
+  "scripts": {
+    "server": "npm --prefix server start",
+    "client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed"
+  },
+  "keywords": ["mern", "examination-system", "bca", "software-engineering", "ieee-830"],
+  "author": "BCA Software Engineering",
+  "license": "ISC"
+}
