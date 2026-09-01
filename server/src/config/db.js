@@ -4,6 +4,56 @@ import { seedDatabase } from '../seed.js';
 
 let isConnecting = false;
 
+// Ensure vital administrative and faculty accounts always exist
+export const ensureEssentialAccounts = async () => {
+  try {
+    // 1. Ensure Faculty Dr. Lt. Mrunali Sawant (support both email formats so login never fails)
+    const facultyConfigs = [
+      { name: 'Dr. Lt. MRUNALI SAWANT', email: 'mrunalisawant@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
+      { name: 'Dr. Lt. MRUNALI SAWANT', email: 'sawantmurnali@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
+      { name: 'Dr. Lt. MRUNALI SAWANT', email: 'sawantmuranali@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
+    ];
+
+    for (const f of facultyConfigs) {
+      const existing = await User.findOne({ email: f.email });
+      if (!existing) {
+        await User.create({
+          name: f.name,
+          email: f.email,
+          password: f.password,
+          role: f.role,
+          department: f.department,
+          year: 'N/A',
+        });
+        console.log(`✅ Ensured faculty account: ${f.email}`);
+      }
+    }
+
+    // 2. Ensure Administrators
+    const adminConfigs = [
+      { name: 'Gagan Moolya (Admin)', email: 'admin@oems.com', password: 'admin123' },
+      { name: 'Shreyas Jha (Admin)', email: 'shreyas.admin@oems.com', password: 'admin123' },
+      { name: 'Akash Gupta (Admin)', email: 'akash.admin@oems.com', password: 'admin123' },
+    ];
+
+    for (const a of adminConfigs) {
+      const existing = await User.findOne({ email: a.email });
+      if (!existing) {
+        await User.create({
+          name: a.name,
+          email: a.email,
+          password: a.password,
+          role: 'admin',
+          department: 'Examination Control Division',
+        });
+        console.log(`✅ Ensured admin account: ${a.email}`);
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ Account verification notice:', err.message);
+  }
+};
+
 export const connectDB = async () => {
   // If already connected, reuse connection (critical for Vercel Serverless)
   if (mongoose.connection.readyState === 1) {
@@ -53,12 +103,14 @@ export const connectDB = async () => {
     isConnecting = false;
   }
 
-  // Check if database needs auto-seeding
+  // Check if database needs auto-seeding or account verification
   try {
     const userCount = await User.countDocuments();
     if (userCount === 0) {
       console.log('ℹ️ No existing users found. Auto-seeding initial academic dataset...');
       await seedDatabase();
+    } else {
+      await ensureEssentialAccounts();
     }
   } catch (seedErr) {
     console.error('⚠️ Auto-seed check failed:', seedErr.message);

@@ -193,7 +193,7 @@ export const createFacultyAccount = async (req, res) => {
 // @access  Public
 export const login = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    let { email, password } = req.body;
 
     if (!email || !password) {
       return res.status(400).json({
@@ -202,7 +202,27 @@ export const login = async (req, res) => {
       });
     }
 
-    const user = await User.findOne({ email: email.toLowerCase().trim() });
+    email = email.toLowerCase().trim();
+
+    let user = await User.findOne({ email });
+
+    // Faculty alias fallback (support all common variations for Dr. Lt. Mrunali Sawant)
+    const facultyAliases = ['mrunalisawant@gmail.com', 'sawantmurnali@gmail.com', 'sawantmuranali@gmail.com'];
+    if (!user && facultyAliases.includes(email)) {
+      user = await User.findOne({ email: { $in: facultyAliases } });
+      // If none of the faculty aliases exist in DB yet, auto-provision
+      if (!user) {
+        user = await User.create({
+          name: 'Dr. Lt. MRUNALI SAWANT',
+          email,
+          password: '123456',
+          role: 'teacher',
+          department: 'BCA',
+          year: 'N/A',
+        });
+      }
+    }
+
     if (!user) {
       return res.status(401).json({
         success: false,

@@ -35,7 +35,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true,
       uppercase: true,
-      sparse: true,
     },
     department: {
       type: String,
