@@ -7,8 +7,9 @@ let isConnecting = false;
 // Ensure vital administrative and faculty accounts always exist
 export const ensureEssentialAccounts = async () => {
   try {
-    // 1. Ensure Faculty Dr. Lt. Mrunali Sawant (support both email formats so login never fails)
+    // 1. Ensure Faculty Dr. Lt. Mrunali Sawant
     const facultyConfigs = [
+      { name: 'Dr. Lt. MRUNALI SAWANT', email: 'sawantmrunali@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
       { name: 'Dr. Lt. MRUNALI SAWANT', email: 'mrunalisawant@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
       { name: 'Dr. Lt. MRUNALI SAWANT', email: 'sawantmurnali@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
       { name: 'Dr. Lt. MRUNALI SAWANT', email: 'sawantmuranali@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },

@@ -46,14 +46,14 @@ export const seedDatabase = async () => {
     // 2. Official Faculty Examiner Account
     const teacherUser = await User.create({
       name: 'Dr. Lt. MRUNALI SAWANT',
-      email: 'mrunalisawant@gmail.com',
+      email: 'sawantmrunali@gmail.com',
       password: '123456',
       role: 'teacher',
       department: 'BCA',
     });
 
     console.log('✅ Initialized Master Admin: admin@oems.com / admin123');
-    console.log('✅ Initialized Faculty Member: mrunalisawant@gmail.com / 123456');
+    console.log('✅ Initialized Faculty Member: sawantmrunali@gmail.com / 123456');
 
     // 3. Register the 10 Student Candidates (Password: 123456)
     const studentData = [

@@ -207,7 +207,12 @@ export const login = async (req, res) => {
     let user = await User.findOne({ email });
 
     // Faculty alias fallback (support all common variations for Dr. Lt. Mrunali Sawant)
-    const facultyAliases = ['mrunalisawant@gmail.com', 'sawantmurnali@gmail.com', 'sawantmuranali@gmail.com'];
+    const facultyAliases = [
+      'sawantmrunali@gmail.com',
+      'mrunalisawant@gmail.com',
+      'sawantmurnali@gmail.com',
+      'sawantmuranali@gmail.com',
+    ];
     if (!user && facultyAliases.includes(email)) {
       user = await User.findOne({ email: { $in: facultyAliases } });
       // If none of the faculty aliases exist in DB yet, auto-provision
