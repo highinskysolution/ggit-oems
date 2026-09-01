@@ -27,7 +27,7 @@ export const seedDatabase = async () => {
       department: 'Examination Control Division',
     });
 
-    // 2. Create 1 Authorized Faculty Examiner Account
+    // 2. Initial Faculty Examiner Account (Ready for user to provide additional faculty)
     const teacherUser = await User.create({
       name: 'Prof. Rajesh Sharma (Faculty)',
       email: 'teacher@oems.com',
@@ -39,7 +39,35 @@ export const seedDatabase = async () => {
     console.log('✅ Initialized Master Admin: admin@oems.com / admin123');
     console.log('✅ Initialized Authorized Faculty: teacher@oems.com / admin123');
 
-    // 3. Create EXACT 6 Academic Curriculum Subjects: Web Framework, Operating System, Java, DBMS, SE, Python
+    // 3. Register the 10 Student Candidates (Password: 123456)
+    const studentData = [
+      { name: 'Aarav Sharma', email: 'aarav.sharma@gmail.com', roll_no: 'BCA202601', department: 'BCA', year: 'SY' },
+      { name: 'Riya Patel', email: 'riya.patel@gmail.com', roll_no: 'BCA202602', department: 'BCA', year: 'SY' },
+      { name: 'Aditya Mehta', email: 'aditya.mehta@gmail.com', roll_no: 'BCA202603', department: 'BCA', year: 'TY' },
+      { name: 'Sneha Joshi', email: 'sneha.joshi@gmail.com', roll_no: 'BCA202604', department: 'BCA', year: 'FY' },
+      { name: 'Rohan Verma', email: 'rohan.verma@gmail.com', roll_no: 'IT202601', department: 'BSc IT', year: 'SY' },
+      { name: 'Ananya Singh', email: 'ananya.singh@gmail.com', roll_no: 'IT202602', department: 'BSc IT', year: 'TY' },
+      { name: 'Kunal Shah', email: 'kunal.shah@gmail.com', roll_no: 'AI202601', department: 'AI', year: 'FY' },
+      { name: 'Priya Desai', email: 'priya.desai@gmail.com', roll_no: 'AI202602', department: 'AI', year: 'SY' },
+      { name: 'Yash Gupta', email: 'yash.gupta@gmail.com', roll_no: 'BCA202605', department: 'BCA', year: 'FY' },
+      { name: 'Neha Kulkarni', email: 'neha.kulkarni@gmail.com', roll_no: 'BCA202606', department: 'BCA', year: 'TY' },
+    ];
+
+    for (const student of studentData) {
+      await User.create({
+        name: student.name,
+        email: student.email,
+        password: '123456',
+        role: 'student',
+        roll_no: student.roll_no,
+        department: student.department,
+        year: student.year,
+      });
+    }
+
+    console.log(`✅ Seeded 10 Official Student Candidates (Password: 123456)`);
+
+    // 4. Create EXACT 6 Academic Curriculum Subjects: Web Framework, Operating System, Java, DBMS, SE, Python
     const wfSubject = await Subject.create({
       subject_code: 'BCA301',
       subject_name: 'Web Application Frameworks (Web Framework)',
@@ -72,7 +100,7 @@ export const seedDatabase = async () => {
 
     console.log('✅ Seeded 6 Core Curriculum Subjects: Web Framework, OS, Java, DBMS, SE, Python');
 
-    // 4. Questions for 1: Web Framework
+    // 5. Questions for 1: Web Framework
     const wfQuestions = await Question.insertMany([
       {
         subject: wfSubject._id,
@@ -117,7 +145,7 @@ export const seedDatabase = async () => {
       },
     ]);
 
-    // 5. Questions for 2: Operating System
+    // 6. Questions for 2: Operating System
     const osQuestions = await Question.insertMany([
       {
         subject: osSubject._id,
@@ -153,7 +181,7 @@ export const seedDatabase = async () => {
       },
     ]);
 
-    // 6. Questions for 3: Java
+    // 7. Questions for 3: Java
     const javaQuestions = await Question.insertMany([
       {
         subject: javaSubject._id,
@@ -184,7 +212,7 @@ export const seedDatabase = async () => {
       },
     ]);
 
-    // 7. Questions for 4: DBMS
+    // 8. Questions for 4: DBMS
     const dbmsQuestions = await Question.insertMany([
       {
         subject: dbmsSubject._id,
@@ -215,7 +243,7 @@ export const seedDatabase = async () => {
       },
     ]);
 
-    // 8. Questions for 5: Software Engineering (SE)
+    // 9. Questions for 5: Software Engineering (SE)
     const seQuestions = await Question.insertMany([
       {
         subject: seSubject._id,
@@ -251,7 +279,7 @@ export const seedDatabase = async () => {
       },
     ]);
 
-    // 9. Questions for 6: Python
+    // 10. Questions for 6: Python
     const pythonQuestions = await Question.insertMany([
       {
         subject: pythonSubject._id,
@@ -284,7 +312,7 @@ export const seedDatabase = async () => {
 
     console.log(`✅ Seeded Questions: WF (${wfQuestions.length}) + OS (${osQuestions.length}) + Java (${javaQuestions.length}) + DBMS (${dbmsQuestions.length}) + SE (${seQuestions.length}) + Python (${pythonQuestions.length})`);
 
-    // 10. Create Active Published Examinations for ALL 6 Subjects
+    // 11. Create Active Published Examinations for ALL 6 Subjects
     const wfTotal = wfQuestions.reduce((s, q) => s + q.marks, 0); // 5 Marks
     const osTotal = osQuestions.reduce((s, q) => s + q.marks, 0); // 5 Marks
     const javaTotal = javaQuestions.reduce((s, q) => s + q.marks, 0); // 4 Marks
