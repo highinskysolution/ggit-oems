@@ -4,7 +4,21 @@ import { seedDatabase } from '../seed.js';
 
 let isConnecting = false;
 
-// Ensure vital administrative and faculty accounts always exist
+// Official Student Directory Dataset
+export const OFFICIAL_STUDENTS = [
+  { name: 'Aarav Sharma', email: 'aarav.sharma@gmail.com', roll_no: 'BCA202601', department: 'BCA', year: 'SY' },
+  { name: 'Riya Patel', email: 'riya.patel@gmail.com', roll_no: 'BCA202602', department: 'BCA', year: 'SY' },
+  { name: 'Aditya Mehta', email: 'aditya.mehta@gmail.com', roll_no: 'BCA202603', department: 'BCA', year: 'TY' },
+  { name: 'Sneha Joshi', email: 'sneha.joshi@gmail.com', roll_no: 'BCA202604', department: 'BCA', year: 'FY' },
+  { name: 'Rohan Verma', email: 'rohan.verma@gmail.com', roll_no: 'IT202601', department: 'BSc IT', year: 'SY' },
+  { name: 'Ananya Singh', email: 'ananya.singh@gmail.com', roll_no: 'IT202602', department: 'BSc IT', year: 'TY' },
+  { name: 'Kunal Shah', email: 'kunal.shah@gmail.com', roll_no: 'AI202601', department: 'AI', year: 'FY' },
+  { name: 'Priya Desai', email: 'priya.desai@gmail.com', roll_no: 'AI202602', department: 'AI', year: 'SY' },
+  { name: 'Yash Gupta', email: 'yash.gupta@gmail.com', roll_no: 'BCA202605', department: 'BCA', year: 'FY' },
+  { name: 'Neha Kulkarni', email: 'neha.kulkarni@gmail.com', roll_no: 'BCA202606', department: 'BCA', year: 'TY' },
+];
+
+// Ensure vital administrative, faculty, and student candidate accounts always exist
 export const ensureEssentialAccounts = async () => {
   try {
     // 1. Ensure Faculty Dr. Lt. Mrunali Sawant
@@ -12,7 +26,6 @@ export const ensureEssentialAccounts = async () => {
       { name: 'Dr. Lt. MRUNALI SAWANT', email: 'sawantmrunali@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
       { name: 'Dr. Lt. MRUNALI SAWANT', email: 'mrunalisawant@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
       { name: 'Dr. Lt. MRUNALI SAWANT', email: 'sawantmurnali@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
-      { name: 'Dr. Lt. MRUNALI SAWANT', email: 'sawantmuranali@gmail.com', password: '123456', role: 'teacher', department: 'BCA' },
     ];
 
     for (const f of facultyConfigs) {
@@ -48,6 +61,25 @@ export const ensureEssentialAccounts = async () => {
           department: 'Examination Control Division',
         });
         console.log(`✅ Ensured admin account: ${a.email}`);
+      }
+    }
+
+    // 3. Ensure the 10 Official Student Candidates (Password: 123456)
+    for (const s of OFFICIAL_STUDENTS) {
+      const existing = await User.findOne({
+        $or: [{ email: s.email }, { roll_no: s.roll_no }],
+      });
+      if (!existing) {
+        await User.create({
+          name: s.name,
+          email: s.email,
+          password: '123456',
+          role: 'student',
+          roll_no: s.roll_no,
+          department: s.department,
+          year: s.year,
+        });
+        console.log(`✅ Ensured student candidate: ${s.name} (${s.email})`);
       }
     }
   } catch (err) {

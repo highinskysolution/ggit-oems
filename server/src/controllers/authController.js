@@ -204,7 +204,12 @@ export const login = async (req, res) => {
 
     email = email.toLowerCase().trim();
 
-    let user = await User.findOne({ email });
+    let user = await User.findOne({
+      $or: [
+        { email: email },
+        { roll_no: email.toUpperCase() },
+      ],
+    });
 
     // Faculty alias fallback (support all common variations for Dr. Lt. Mrunali Sawant)
     const facultyAliases = [
@@ -215,7 +220,6 @@ export const login = async (req, res) => {
     ];
     if (!user && facultyAliases.includes(email)) {
       user = await User.findOne({ email: { $in: facultyAliases } });
-      // If none of the faculty aliases exist in DB yet, auto-provision
       if (!user) {
         user = await User.create({
           name: 'Dr. Lt. MRUNALI SAWANT',
@@ -224,6 +228,37 @@ export const login = async (req, res) => {
           role: 'teacher',
           department: 'BCA',
           year: 'N/A',
+        });
+      }
+    }
+
+    // Official Student Auto-Provisioning fallback
+    const officialStudentsList = [
+      { name: 'Aarav Sharma', email: 'aarav.sharma@gmail.com', roll_no: 'BCA202601', department: 'BCA', year: 'SY' },
+      { name: 'Riya Patel', email: 'riya.patel@gmail.com', roll_no: 'BCA202602', department: 'BCA', year: 'SY' },
+      { name: 'Aditya Mehta', email: 'aditya.mehta@gmail.com', roll_no: 'BCA202603', department: 'BCA', year: 'TY' },
+      { name: 'Sneha Joshi', email: 'sneha.joshi@gmail.com', roll_no: 'BCA202604', department: 'BCA', year: 'FY' },
+      { name: 'Rohan Verma', email: 'rohan.verma@gmail.com', roll_no: 'IT202601', department: 'BSc IT', year: 'SY' },
+      { name: 'Ananya Singh', email: 'ananya.singh@gmail.com', roll_no: 'IT202602', department: 'BSc IT', year: 'TY' },
+      { name: 'Kunal Shah', email: 'kunal.shah@gmail.com', roll_no: 'AI202601', department: 'AI', year: 'FY' },
+      { name: 'Priya Desai', email: 'priya.desai@gmail.com', roll_no: 'AI202602', department: 'AI', year: 'SY' },
+      { name: 'Yash Gupta', email: 'yash.gupta@gmail.com', roll_no: 'BCA202605', department: 'BCA', year: 'FY' },
+      { name: 'Neha Kulkarni', email: 'neha.kulkarni@gmail.com', roll_no: 'BCA202606', department: 'BCA', year: 'TY' },
+    ];
+
+    if (!user) {
+      const matchedOfficial = officialStudentsList.find(
+        (s) => s.email === email || s.roll_no === email.toUpperCase()
+      );
+      if (matchedOfficial) {
+        user = await User.create({
+          name: matchedOfficial.name,
+          email: matchedOfficial.email,
+          password: '123456',
+          role: 'student',
+          roll_no: matchedOfficial.roll_no,
+          department: matchedOfficial.department,
+          year: matchedOfficial.year,
         });
       }
     }
