@@ -20,7 +20,7 @@ export const seedDatabase = async () => {
 
     // 1. Create Master Admin Account (Controller of Examinations)
     const adminUser = await User.create({
-      name: 'Dr. Vikram Malhotra (Admin)',
+      name: 'Gagan Moolya (Admin)',
       email: 'admin@oems.com',
       password: 'admin123',
       role: 'admin',
