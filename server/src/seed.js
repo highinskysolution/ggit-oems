@@ -27,17 +27,17 @@ export const seedDatabase = async () => {
       department: 'Examination Control Division',
     });
 
-    // 2. Initial Faculty Examiner Account (Ready for user to provide additional faculty)
+    // 2. Official Faculty Examiner Account
     const teacherUser = await User.create({
-      name: 'Prof. Rajesh Sharma (Faculty)',
-      email: 'teacher@oems.com',
-      password: 'admin123',
+      name: 'Dr. Lt. MRUNALI SAWANT',
+      email: 'sawantmurnali@gmail.com',
+      password: '123456',
       role: 'teacher',
       department: 'BCA',
     });
 
     console.log('✅ Initialized Master Admin: admin@oems.com / admin123');
-    console.log('✅ Initialized Authorized Faculty: teacher@oems.com / admin123');
+    console.log('✅ Initialized Faculty Member: sawantmurnali@gmail.com / 123456');
 
     // 3. Register the 10 Student Candidates (Password: 123456)
     const studentData = [
