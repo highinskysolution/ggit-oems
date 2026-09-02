@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Shield, Key, Lock, Mail, ArrowRight, AlertCircle, Sparkles, Building2, ShieldCheck } from 'lucide-react';
+import { Shield, Key, Lock, Mail, ArrowRight, AlertCircle, Eye, EyeOff, Sparkles, Building2, ShieldCheck } from 'lucide-react';
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [adminKey, setAdminKey] = useState('');
+  const [showKey, setShowKey] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -16,10 +17,16 @@ const AdminLoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
+    if (!email.trim() || !password.trim() || !adminKey.trim()) {
+      setError('Please provide Email, Password, and Admin Master Key.');
+      return;
+    }
+
     setLoading(true);
 
     try {
-      await adminLogin(email, password, adminKey);
+      await adminLogin(email.trim(), password.trim(), adminKey.trim());
       navigate('/admin/dashboard');
     } catch (err) {
       setError(err.message || 'Invalid administrator credentials or master key.');
@@ -94,26 +101,40 @@ const AdminLoginPage = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-amber-300 mb-1.5 flex items-center justify-between">
-                <span className="flex items-center gap-1">
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="text-xs font-bold text-amber-300 flex items-center gap-1">
                   <Key className="w-3.5 h-3.5 text-amber-400" />
                   Admin Login Key (Master Key)
-                </span>
-                <span className="text-[10px] text-slate-400 font-mono">Key Protected</span>
-              </label>
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setAdminKey('GGIT-ADMIN-2026')}
+                  className="text-[10px] text-amber-400 hover:text-amber-300 underline font-mono cursor-pointer"
+                >
+                  Auto-fill Key
+                </button>
+              </div>
               <div className="relative">
                 <Key className="w-4 h-4 text-amber-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
-                  type="password"
+                  type={showKey ? 'text' : 'password'}
                   required
                   value={adminKey}
                   onChange={(e) => setAdminKey(e.target.value)}
                   placeholder="e.g. GGIT-ADMIN-2026"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-amber-500/40 text-amber-200 text-xs font-mono placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-slate-950 border border-amber-500/40 text-amber-200 text-xs font-mono placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowKey(!showKey)}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200"
+                  tabIndex={-1}
+                >
+                  {showKey ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                </button>
               </div>
               <p className="text-[10px] text-slate-500 mt-1">
-                Default Master Key: <code>GGIT-ADMIN-2026</code>
+                Authorized Master Key: <code className="text-amber-400 font-bold">GGIT-ADMIN-2026</code>
               </p>
             </div>
 

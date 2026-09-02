@@ -350,11 +350,22 @@ const LoginPage = () => {
             )}
             {error && (
               <div
-                className="mb-4 p-3.5 rounded-2xl flex items-center gap-2 text-xs"
+                className="mb-4 p-3.5 rounded-2xl flex flex-col gap-2 text-xs"
                 style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)', color: '#fca5a5' }}
               >
-                <AlertCircle className="w-4 h-4 shrink-0" />
-                <span>{error}</span>
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{error}</span>
+                </div>
+                {error.toLowerCase().includes('admin') && (
+                  <Link
+                    to="/admin/login"
+                    className="mt-1 px-3 py-2 rounded-xl bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 border border-amber-500/40 font-bold text-xs text-center transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <span>👑 Open Master Administrator Gateway (/admin/login)</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                )}
               </div>
             )}
 
