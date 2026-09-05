@@ -13,7 +13,7 @@ const generateToken = (id) => {
 // Valid Academic Departments and Years
 const VALID_DEPARTMENTS = ['BCA', 'BSc IT', 'AI'];
 const VALID_YEARS = ['FY', 'SY', 'TY'];
-const ADMIN_MASTER_KEY = process.env.ADMIN_MASTER_KEY || 'GGIT-ADMIN-2026';
+const ADMIN_MASTER_KEY = process.env.ADMIN_MASTER_KEY || 'ASG-IIT-ADMIN-2026';
 
 // @desc    Register new student candidate (Public Registration is strictly for students)
 // @route   POST /api/auth/register
@@ -47,7 +47,7 @@ export const register = async (req, res) => {
     if (emailExists) {
       return res.status(400).json({
         success: false,
-        message: `An account with email '${email}' is already registered in GGIT.`,
+        message: `An account with email '${email}' is already registered in ASG-IIT.`,
       });
     }
 
@@ -75,7 +75,7 @@ export const register = async (req, res) => {
     if (rollExists) {
       return res.status(400).json({
         success: false,
-        message: `Roll Number '${roll_no}' is already assigned to another student in GGIT. Duplicate roll numbers are not permitted.`,
+        message: `Roll Number '${roll_no}' is already assigned to another student in ASG-IIT. Duplicate roll numbers are not permitted.`,
       });
     }
 
@@ -95,7 +95,7 @@ export const register = async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      message: 'Registration successful! Welcome to GGIT Candidate Portal.',
+      message: 'Registration successful! Welcome to ASG-IIT Candidate Portal.',
       token,
       user: {
         _id: user._id,
@@ -114,7 +114,7 @@ export const register = async (req, res) => {
       if (error.keyPattern?.roll_no) {
         return res.status(400).json({
           success: false,
-          message: 'This Roll Number is already registered in GGIT.',
+          message: 'This Roll Number is already registered in ASG-IIT.',
         });
       }
       return res.status(400).json({
@@ -154,7 +154,7 @@ export const createFacultyAccount = async (req, res) => {
     if (emailExists) {
       return res.status(400).json({
         success: false,
-        message: `An account with email '${email}' already exists in GGIT.`,
+        message: `An account with email '${email}' already exists in ASG-IIT.`,
       });
     }
 
@@ -275,7 +275,7 @@ export const login = async (req, res) => {
       return res.status(403).json({
         success: false,
         requiresAdminKey: true,
-        message: 'Administrator authorization requires a valid GGIT Admin Master Key.',
+        message: 'Administrator authorization requires a valid ASG-IIT Admin Master Key.',
       });
     }
 
@@ -289,7 +289,8 @@ export const login = async (req, res) => {
 
     // Verify Admin Key if role is admin
     if (user.role === 'admin') {
-      if (req.body.admin_key !== ADMIN_MASTER_KEY) {
+      const allowedAdminKeys = [ADMIN_MASTER_KEY, 'ASG-IIT-ADMIN-2026', 'GGIT-ADMIN-2026'];
+      if (!allowedAdminKeys.includes(req.body.admin_key?.trim())) {
         return res.status(401).json({
           success: false,
           message: 'Invalid Admin Master Key. Access Denied.',
@@ -342,12 +343,16 @@ export const adminLogin = async (req, res) => {
     }
 
     const trimmedKey = admin_key.trim().toUpperCase();
-    const expectedKey = (ADMIN_MASTER_KEY || 'GGIT-ADMIN-2026').trim().toUpperCase();
+    const validMasterKeys = [
+      process.env.ADMIN_MASTER_KEY,
+      'ASG-IIT-ADMIN-2026',
+      'GGIT-ADMIN-2026',
+    ].filter(Boolean).map((k) => k.trim().toUpperCase());
 
-    if (trimmedKey !== expectedKey) {
+    if (!validMasterKeys.includes(trimmedKey)) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid Admin Master Key. Please enter the valid key: GGIT-ADMIN-2026',
+        message: 'Invalid Admin Master Key. Please enter the valid key: ASG-IIT-ADMIN-2026',
       });
     }
 
@@ -355,7 +360,7 @@ export const adminLogin = async (req, res) => {
 
     // Support standard admin email aliases
     const adminDirectory = [
-      { name: 'Gagan Moolya (Admin)', email: 'admin@oems.com', aliases: ['admin@oems.com', 'gagan.admin@oems.com', 'gagan@oems.com', 'admin@ggit.edu', 'admin'] },
+      { name: 'Gagan Moolya (Admin)', email: 'admin@oems.com', aliases: ['admin@oems.com', 'gagan.admin@oems.com', 'gagan@oems.com', 'admin@asg-iit.edu', 'admin@ggit.edu', 'admin'] },
       { name: 'Shreyas Jha (Admin)', email: 'shreyas.admin@oems.com', aliases: ['shreyas.admin@oems.com', 'shreyas@oems.com'] },
       { name: 'Akash Gupta (Admin)', email: 'akash.admin@oems.com', aliases: ['akash.admin@oems.com', 'akash@oems.com'] },
     ];

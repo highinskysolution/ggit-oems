@@ -356,7 +356,7 @@ const LiveExamRoomPage = () => {
     return (
       <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-slate-300">
         <Loader2 className="w-10 h-10 text-cyan-500 animate-spin mb-4" />
-        <p className="text-sm font-semibold tracking-wide">Initializing GGIT AI-Proctored Test Environment...</p>
+        <p className="text-sm font-semibold tracking-wide">Initializing ASG-IIT AI-Proctored Test Environment...</p>
       </div>
     );
   }
@@ -419,7 +419,7 @@ const LiveExamRoomPage = () => {
                 {exam.title}
               </h1>
               <p className="text-[11px] text-cyan-300 font-mono flex items-center gap-1.5">
-                <span>GGIT • {exam.subject?.subject_code}</span>
+                <span>ASG-IIT • {exam.subject?.subject_code}</span>
                 <span>•</span>
                 <span>{questions.length} Questions ({exam.total_marks} Marks)</span>
               </p>
@@ -678,7 +678,7 @@ const LiveExamRoomPage = () => {
                 • You have navigated outside the examination test window (Violation count: <strong className="text-rose-400">{tabSwitchCount}</strong>).
               </p>
               <p className="text-[11px] text-slate-400">
-                • Copying questions or consulting external materials is strictly prohibited and logged in your official GGIT marksheet audit record.
+                • Copying questions or consulting external materials is strictly prohibited and logged in your official ASG-IIT marksheet audit record.
               </p>
             </div>
 

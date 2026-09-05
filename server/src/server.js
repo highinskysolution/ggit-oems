@@ -23,7 +23,7 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'online',
     system: 'Online Examination Management System (OEMS)',
-    institution: 'GG Institute of Technology (GGIT)',
+    institution: 'ASG-IIT',
     version: '1.0.0',
     timestamp: new Date(),
   });

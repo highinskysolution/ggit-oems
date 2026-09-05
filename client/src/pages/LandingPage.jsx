@@ -31,7 +31,7 @@ const LandingPage = () => {
             {/* University Tag */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/80 border border-indigo-600/50 text-indigo-300 text-xs font-bold mb-6 shadow-lg shadow-indigo-950/50 backdrop-blur-md">
               <Building2 className="w-4 h-4 text-cyan-400" />
-              <span>GG Institute of Technology (GGIT) • Digital Examination System</span>
+              <span>ASG-IIT • Digital Examination System</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
@@ -42,7 +42,7 @@ const LandingPage = () => {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed mb-8 max-w-2xl mx-auto">
-              Official academic examination portal for <strong className="text-white">GG Institute of Technology</strong> across <span className="text-cyan-300 font-semibold">BCA</span>, <span className="text-indigo-300 font-semibold">BSc IT</span>, and <span className="text-purple-300 font-semibold">AI</span> departments.
+              Official academic examination portal for <strong className="text-white">ASG-IIT</strong> across <span className="text-cyan-300 font-semibold">BCA</span>, <span className="text-indigo-300 font-semibold">BSc IT</span>, and <span className="text-purple-300 font-semibold">AI</span> departments.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3">
@@ -89,7 +89,7 @@ const LandingPage = () => {
 
                 <h3 className="text-2xl font-black text-white mb-2">Student Portal</h3>
                 <p className="text-xs text-slate-400 mb-6 leading-relaxed">
-                  Dedicated examination terminal for GGIT candidates (FY, SY, TY) across BCA, BSc IT & AI departments to attempt timed tests and view marksheets.
+                  Dedicated examination terminal for ASG-IIT candidates (FY, SY, TY) across BCA, BSc IT & AI departments to attempt timed tests and view marksheets.
                 </p>
 
                 <ul className="space-y-2.5 text-xs text-slate-300 mb-8">
@@ -136,7 +136,7 @@ const LandingPage = () => {
 
                 <h3 className="text-2xl font-black text-white mb-2">Faculty / Teacher Portal</h3>
                 <p className="text-xs text-slate-400 mb-6 leading-relaxed">
-                  Academic management console for GGIT instructors to author MCQs, configure scheduled exams in real-time, and audit class performance.
+                  Academic management console for ASG-IIT instructors to author MCQs, configure scheduled exams in real-time, and audit class performance.
                 </p>
 
                 <ul className="space-y-2.5 text-xs text-slate-300 mb-8">
@@ -174,7 +174,7 @@ const LandingPage = () => {
           {/* Institutional Highlights */}
           <div className="rounded-3xl bg-slate-900/60 border border-slate-800 p-8 max-w-5xl mx-auto shadow-xl">
             <h3 className="text-base font-bold text-white text-center mb-6 uppercase tracking-wider">
-              GG Institute of Technology • Digital Examination Framework
+              ASG-IIT • Digital Examination Framework
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

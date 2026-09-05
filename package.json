@@ -1,7 +1,7 @@
 {
   "name": "oems-root",
   "version": "1.0.0",
-  "description": "Online Examination Management System (OEMS) - GG Institute of Technology",
+  "description": "Online Examination Management System (OEMS) - ASG-IIT",
   "type": "module",
   "scripts": {
     "dev": "npm --prefix client run dev",
@@ -22,9 +22,9 @@
   "keywords": [
     "mern",
     "examination-system",
-    "ggit",
+    "asg-iit",
     "software-engineering"
   ],
-  "author": "GGIT",
+  "author": "ASG-IIT",
   "license": "ISC"
 }

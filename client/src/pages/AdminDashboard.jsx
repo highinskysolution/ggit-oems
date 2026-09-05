@@ -131,13 +131,13 @@ const AdminDashboard = () => {
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-bold mb-2">
             <Shield className="w-3.5 h-3.5 text-amber-400" />
-            <span>GGIT • System User Access & Login Activity Terminal</span>
+            <span>ASG-IIT • System User Access & Login Activity Terminal</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-white">
             Registered Users & Login Audit Log
           </h1>
           <p className="text-xs text-slate-400 mt-1">
-            Real-time tracking of all students and faculty members registered and logged into GGIT
+            Real-time tracking of all students and faculty members registered and logged into ASG-IIT
           </p>
         </div>
 
@@ -481,7 +481,7 @@ const AdminDashboard = () => {
                     required
                     value={facultyForm.email}
                     onChange={(e) => setFacultyForm({ ...facultyForm, email: e.target.value })}
-                    placeholder="e.g. anjali@ggit.edu"
+                    placeholder="e.g. anjali@asg-iit.edu"
                     className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   />
                 </div>

@@ -67,7 +67,7 @@ const ScorecardPage = () => {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-slate-400">
         <Loader2 className="w-8 h-8 text-cyan-500 animate-spin mb-3" />
-        <p className="text-xs font-medium">Generating official GGIT marksheet display...</p>
+        <p className="text-xs font-medium">Generating official ASG-IIT marksheet display...</p>
       </div>
     );
   }
@@ -115,7 +115,7 @@ const ScorecardPage = () => {
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-bold mb-2">
             <Building2 className="w-3.5 h-3.5 text-cyan-400" />
-            <span>GG Institute of Technology • Official Academic Marksheet</span>
+            <span>ASG-IIT • Official Academic Marksheet</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-white">
             Semester Examination Marks Statement
@@ -129,7 +129,7 @@ const ScorecardPage = () => {
           <button
             onClick={() => window.print()}
             className="px-4 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/25 hover:scale-[1.02]"
-            title="Print Official GGIT Marksheet"
+            title="Print Official ASG-IIT Marksheet"
           >
             <Printer className="w-4 h-4 text-white" />
             <span>Print Official Marksheet</span>
@@ -170,7 +170,7 @@ const ScorecardPage = () => {
             <div>
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">University Roll Number</span>
               <span className="text-base font-mono font-black text-cyan-300">{student?.roll_no || 'BCA2024001'}</span>
-              <span className="text-[11px] text-slate-400 block">GGIT Registered ID</span>
+              <span className="text-[11px] text-slate-400 block">ASG-IIT Registered ID</span>
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-# GG Institute of Technology (GGIT)
+# ASG-IIT
 ### Online Examination Management System (OEMS 2.0)
 **Bachelor of Computer Applications (BCA) - Semester Software Engineering Project**
 *Standard IEEE 830-1998 SRS Compliant Full-Stack Prototype*
@@ -6,7 +6,7 @@
 ---
 
 ## 📌 Project Overview
-The **GG Institute of Technology (GGIT) Online Examination Management System** is an enterprise-grade, responsive 3-tier MERN stack (MongoDB, Express.js, React, Node.js) web application engineered for university examinations. Featuring real-time synchronized countdown testing, AI anti-cheating window monitors, automated grading, and instant academic transcripts.
+The **ASG-IIT Online Examination Management System** is an enterprise-grade, responsive 3-tier MERN stack (MongoDB, Express.js, React, Node.js) web application engineered for university examinations. Featuring real-time synchronized countdown testing, AI anti-cheating window monitors, automated grading, and instant academic transcripts.
 
 ---
 

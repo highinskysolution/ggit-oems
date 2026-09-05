@@ -105,7 +105,7 @@ const LoginPage = () => {
 
       <div className="w-full max-w-lg relative z-10">
 
-        {/* ── GGIT Institutional Header ── */}
+        {/* ── ASG-IIT Institutional Header ── */}
         <div className="text-center mb-8">
           <div
             className="mx-auto mb-4 flex items-center justify-center"
@@ -131,7 +131,7 @@ const LoginPage = () => {
             className="text-3xl font-black tracking-tight text-white mb-1"
             style={{ letterSpacing: '-0.02em' }}
           >
-            GG Institute of Technology
+            ASG-IIT
           </h1>
           <p className="text-xs font-semibold tracking-widest uppercase"
             style={{ color: isStudent ? '#22d3ee' : '#a78bfa', transition: 'color 0.4s ease' }}
@@ -388,7 +388,7 @@ const LoginPage = () => {
                     autoComplete="off"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder={isStudent ? 'student@gmail.com' : 'faculty@ggit.edu.in'}
+                    placeholder={isStudent ? 'student@gmail.com' : 'faculty@asg-iit.edu.in'}
                     className="w-full pl-10 pr-4 py-3 rounded-xl text-white text-sm placeholder-slate-600 transition-all outline-none"
                     style={{
                       background: 'rgba(255,255,255,0.04)',
@@ -550,10 +550,10 @@ const LoginPage = () => {
         {/* ── Bottom Institutional Seal ── */}
         <div className="mt-6 text-center">
           <p className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: '#334155' }}>
-            GG Institute of Technology • NAAC 'A+' Grade • AICTE Approved
+            ASG-IIT • NAAC 'A+' Grade • AICTE Approved
           </p>
           <p className="text-[10px] mt-1" style={{ color: '#1e293b' }}>
-            © 2026 GGIT Examination Cell • All Rights Reserved
+            © 2026 ASG-IIT Examination Cell • All Rights Reserved
           </p>
         </div>
       </div>

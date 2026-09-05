@@ -88,7 +88,7 @@ const StudentDashboard = () => {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-slate-400">
         <Loader2 className="w-8 h-8 text-cyan-500 animate-spin mb-3" />
-        <p className="text-xs font-semibold tracking-wide">Accessing GGIT Candidate Portal...</p>
+        <p className="text-xs font-semibold tracking-wide">Accessing ASG-IIT Candidate Portal...</p>
       </div>
     );
   }
@@ -101,7 +101,7 @@ const StudentDashboard = () => {
           <div className="space-y-1.5">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-bold">
               <Building2 className="w-3.5 h-3.5 text-cyan-400" />
-              <span>GG Institute of Technology • Candidate Assessment Terminal</span>
+              <span>ASG-IIT • Candidate Assessment Terminal</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
               Welcome back, {user?.name}!
@@ -196,7 +196,7 @@ const StudentDashboard = () => {
           <div>
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-cyan-400" />
-              Available Semester Examinations (GGIT Schedule)
+              Available Semester Examinations (ASG-IIT Schedule)
             </h2>
             <p className="text-xs text-slate-400">
               Select an assessment to review proctoring guidelines and begin your live timed test
@@ -318,7 +318,7 @@ const StudentDashboard = () => {
               Academic Examination Transcripts & Score History
             </h2>
             <p className="text-xs text-slate-400">
-              Historical record of all your submitted exams with official GGIT evaluation records
+              Historical record of all your submitted exams with official ASG-IIT evaluation records
             </p>
           </div>
         </div>

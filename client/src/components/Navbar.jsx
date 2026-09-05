@@ -29,7 +29,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 py-2">
-          {/* Brand Logo: GG Institute of Technology */}
+          {/* Brand Logo: ASG-IIT */}
           <div className="flex items-center space-x-3">
             <Link to="/" className="flex items-center space-x-3 group">
               <div className="relative">
@@ -43,14 +43,14 @@ const Navbar = () => {
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-lg font-black tracking-tight text-white group-hover:text-indigo-300 transition-colors">
-                    GGIT
+                    ASG-IIT
                   </span>
                   <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-gradient-to-r from-indigo-500/20 to-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/30">
                     OEMS 2.0
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-400 font-semibold tracking-wide hidden sm:block">
-                  GG Institute of Technology • Examination Portal
+                  ASG-IIT • Examination Portal
                 </p>
               </div>
             </Link>

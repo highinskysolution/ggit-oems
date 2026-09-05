@@ -27,7 +27,7 @@ const PrintableScorecard = ({ result, allStudentResults = [] }) => {
           </div>
           <div>
             <h1 className="text-2xl font-black tracking-tight text-slate-950 uppercase">
-              GG Institute of Technology
+              ASG-IIT
             </h1>
             <p className="text-[11px] font-bold text-indigo-700 uppercase tracking-widest">
               Office of the Controller of Examinations • Semester Grade Report
@@ -150,7 +150,7 @@ const PrintableScorecard = ({ result, allStudentResults = [] }) => {
           <div className="border-t border-slate-400 pt-1 font-bold text-slate-900">
             Controller of Examinations
           </div>
-          <p className="text-[10px] text-slate-500">GG Institute of Technology (GGIT)</p>
+          <p className="text-[10px] text-slate-500">ASG-IIT</p>
         </div>
       </div>
     </div>

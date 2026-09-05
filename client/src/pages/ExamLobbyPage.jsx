@@ -64,7 +64,7 @@ const ExamLobbyPage = () => {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-slate-400">
         <Loader2 className="w-8 h-8 text-cyan-500 animate-spin mb-3" />
-        <p className="text-xs font-medium">Entering GGIT Examination Lobby...</p>
+        <p className="text-xs font-medium">Entering ASG-IIT Examination Lobby...</p>
       </div>
     );
   }
@@ -87,13 +87,13 @@ const ExamLobbyPage = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-6">
-      {/* Header card with GGIT institutional seal */}
+      {/* Header card with ASG-IIT institutional seal */}
       <div className="rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950/80 to-slate-900 border border-indigo-500/30 p-6 sm:p-8 shadow-2xl">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-2">
             <Building2 className="w-4 h-4 text-cyan-400" />
             <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-              GG Institute of Technology (GGIT)
+              ASG-IIT
             </span>
           </div>
           <span className="text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex items-center gap-1.5">
@@ -145,7 +145,7 @@ const ExamLobbyPage = () => {
             Assessment Already Submitted (Single Attempt Rule)
           </h2>
           <p className="text-xs text-slate-300 max-w-lg mx-auto">
-            Under GGIT Examination Regulations (IEEE 830 FR-OE-02), candidate submissions are restricted to one attempt per scheduled examination. Your marksheet and answers have been recorded.
+            Under ASG-IIT Examination Regulations (IEEE 830 FR-OE-02), candidate submissions are restricted to one attempt per scheduled examination. Your marksheet and answers have been recorded.
           </p>
           <div className="pt-2">
             <Link
@@ -163,7 +163,7 @@ const ExamLobbyPage = () => {
           <div>
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <FileCheck className="w-5 h-5 text-cyan-400" />
-              GGIT Candidate Examination Guidelines & Code of Conduct
+              ASG-IIT Candidate Examination Guidelines & Code of Conduct
             </h3>
             <p className="text-xs text-slate-400">
               Please read all rules carefully before entering the secure examination room:
@@ -218,7 +218,7 @@ const ExamLobbyPage = () => {
                 className="mt-0.5 w-4 h-4 rounded text-indigo-600 bg-slate-950 border-slate-700 focus:ring-indigo-500"
               />
               <span className="text-xs text-slate-300 font-medium">
-                I hereby declare that I am the authorized student candidate and agree to adhere strictly to GG Institute of Technology examination regulations and anti-cheating policies.
+                I hereby declare that I am the authorized student candidate and agree to adhere strictly to ASG-IIT examination regulations and anti-cheating policies.
               </span>
             </label>
           </div>

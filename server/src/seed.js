@@ -7,7 +7,7 @@ import Result from './models/Result.js';
 
 export const seedDatabase = async () => {
   try {
-    console.log('🌱 Starting GGIT Academic Database Initialization...');
+    console.log('🌱 Starting ASG-IIT Academic Database Initialization...');
 
     // Clean all collections for fresh initialization
     await Promise.all([

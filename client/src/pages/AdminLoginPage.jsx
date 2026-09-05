@@ -108,7 +108,7 @@ const AdminLoginPage = () => {
                 </label>
                 <button
                   type="button"
-                  onClick={() => setAdminKey('GGIT-ADMIN-2026')}
+                  onClick={() => setAdminKey('ASG-IIT-ADMIN-2026')}
                   className="text-[10px] text-amber-400 hover:text-amber-300 underline font-mono cursor-pointer"
                 >
                   Auto-fill Key
@@ -121,7 +121,7 @@ const AdminLoginPage = () => {
                   required
                   value={adminKey}
                   onChange={(e) => setAdminKey(e.target.value)}
-                  placeholder="e.g. GGIT-ADMIN-2026"
+                  placeholder="e.g. ASG-IIT-ADMIN-2026"
                   className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-slate-950 border border-amber-500/40 text-amber-200 text-xs font-mono placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                 />
                 <button
@@ -134,7 +134,7 @@ const AdminLoginPage = () => {
                 </button>
               </div>
               <p className="text-[10px] text-slate-500 mt-1">
-                Authorized Master Key: <code className="text-amber-400 font-bold">GGIT-ADMIN-2026</code>
+                Authorized Master Key: <code className="text-amber-400 font-bold">ASG-IIT-ADMIN-2026</code>
               </p>
             </div>
 

@@ -94,7 +94,7 @@ const RegisterPage = () => {
             <GraduationCap className="w-8 h-8 text-white" />
           </div>
           <h2 className="text-2xl font-black tracking-tight text-white">
-            GG Institute of Technology
+            ASG-IIT
           </h2>
           <p className="mt-1 text-xs text-cyan-300 font-semibold tracking-wide">
             Student Candidate Registration Portal
@@ -191,7 +191,7 @@ const RegisterPage = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="name@ggit.edu or candidate@gmail.com"
+                  placeholder="name@asg-iit.edu or candidate@gmail.com"
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                 />
               </div>
@@ -221,7 +221,7 @@ const RegisterPage = () => {
                 />
               </div>
               <p className="text-[10px] text-slate-400 mt-1">
-                Must be unique across GGIT (e.g. <code>{formData.department.replace(' ', '')}2024001</code>).
+                Must be unique across ASG-IIT (e.g. <code>{formData.department.replace(' ', '')}2024001</code>).
               </p>
             </div>
 
@@ -271,7 +271,7 @@ const RegisterPage = () => {
           </div>
 
           <div className="text-center text-xs text-slate-400 border-t border-slate-800 pt-4">
-            Already registered with GGIT?{' '}
+            Already registered with ASG-IIT?{' '}
             <Link
               to="/login"
               className="font-bold text-cyan-400 hover:text-cyan-300 transition-colors"

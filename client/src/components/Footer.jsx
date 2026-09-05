@@ -29,7 +29,7 @@ const Footer = () => {
               </div>
               <div>
                 <span className="font-black text-sm text-white tracking-wide block">
-                  GG Institute of Technology
+                  ASG-IIT
                 </span>
                 <span className="text-[10px] text-cyan-400 font-bold uppercase tracking-wider block">
                   Office of the Controller of Examinations
@@ -119,11 +119,11 @@ const Footer = () => {
             <div className="space-y-3 text-xs text-slate-400">
               <p className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
-                <span>GGIT Main Campus, Institutional Knowledge Park, Tech Zone 4</span>
+                <span>ASG-IIT Main Campus, Institutional Knowledge Park, Tech Zone 4</span>
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span className="font-mono text-[11px] text-slate-300">coe@ggit.edu.in</span>
+                <span className="font-mono text-[11px] text-slate-300">coe@asg-iit.edu.in</span>
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -140,7 +140,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-          <p>© 2026 GG Institute of Technology (GGIT). All institutional and academic rights reserved.</p>
+          <p>© 2026 ASG-IIT. All institutional and academic rights reserved.</p>
           <div className="flex items-center gap-6 text-slate-400">
             <span className="hover:text-slate-200 cursor-pointer transition-colors">Academic Integrity Policy</span>
             <span>•</span>
