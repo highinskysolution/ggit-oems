@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ASG-IIT - Online Examination Management System (OEMS) Complete Manual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 14mm 14mm 16mm 14mm;
+      @bottom-right {
+        content: counter(page);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.5;
+      font-size: 11.5px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      page-break-after: always;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+    }
+
+    code, pre, .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Cover Page Styling */
+    .cover-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      min-height: 250mm;
+      background: linear-gradient(145deg, #0b1120 0%, #1e1b4b 50%, #082f49 100%);
+      color: #ffffff;
+      padding: 40px 36px;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-page h1, .cover-page h2, .cover-page h3 {
+      color: #ffffff;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-cyan {
+      background: rgba(6, 182, 212, 0.15);
+      color: #22d3ee;
+      border: 1px solid rgba(34, 211, 238, 0.35);
+    }
+
+    .badge-purple {
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(192, 132, 252, 0.35);
+    }
+
+    .badge-emerald {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+    }
+
+    .section-header {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+      margin-top: 22px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-header h2 {
+      font-size: 16px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-header .section-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+
+    .card-cyan {
+      background: #f0fdfa;
+      border: 1px solid #99f6e4;
+    }
+
+    .card-indigo {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+    }
+
+    .card-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+    }
+
+    .card-purple {
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      font-size: 10.5px;
+    }
+
+    th, td {
+      padding: 7px 10px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    th {
+      background-color: #0f172a;
+      color: #ffffff;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      text-transform: uppercase;
+      font-size: 9.5px;
+      letter-spacing: 0.5px;
+    }
+
+    th:first-child {
+      border-top-left-radius: 8px;
+    }
+
+    th:last-child {
+      border-top-right-radius: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .step-box {
+      border-left: 3px solid #6366f1;
+      padding: 8px 12px;
+      background: #ffffff;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 10px;
+      border-top: 1px solid #f1f5f9;
+      border-right: 1px solid #f1f5f9;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: #1e1b4b;
+      font-size: 11.5px;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .step-num {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #4f46e5;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9.5px;
+      font-weight: 800;
+    }
+
+    .footer-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9px;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 6px;
+    }
+
+    .highlight-key {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fcd34d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 10.5px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      font-size: 9.5px;
+      font-weight: 700;
+    }
+    .pill-green { background: #dcfce7; color: #166534; }
+    .pill-cyan { background: #cffafe; color: #155e75; }
+    .pill-purple { background: #f3e8ff; color: #6b21a8; }
+    .pill-amber { background: #fef3c7; color: #92400e; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1: COVER PAGE ==================== -->
+  <div class="page">
+    <div class="cover-page">
+      <div>
+        <!-- Top Institutional Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 16px; margin-bottom: 40px;">
+          <div>
+            <div style="font-size: 22px; font-weight: 900; letter-spacing: -0.5px; color: #ffffff;">ASG-IIT</div>
+            <div style="font-size: 10.5px; color: #38bdf8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px;">
+              Autonomous Science & Graduate Institute of Information Technology
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 10px; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Office of the Controller of Examinations</div>
+            <div style="display: flex; gap: 6px; margin-top: 4px;">
+              <span class="badge badge-emerald">NAAC 'A+' Grade</span>
+              <span class="badge badge-cyan">AICTE Approved</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Document Main Title -->
+        <div style="margin-top: 40px; margin-bottom: 30px;">
+          <span class="badge badge-purple" style="font-size: 11px; padding: 6px 14px; margin-bottom: 16px;">
+            Official System Operations & User Manual
+          </span>
+          <h1 style="font-size: 34px; font-weight: 900; line-height: 1.15; margin-top: 12px; margin-bottom: 14px;">
+            Online Examination <br>
+            <span style="background: linear-gradient(90deg, #38bdf8, #818cf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Management System (OEMS 2.0)
+            </span>
+          </h1>
+          <p style="font-size: 13px; color: #cbd5e1; max-width: 580px; line-height: 1.6;">
+            Comprehensive institutional handbook covering User Authentication, Master Administrator Terminal, Faculty Examination Authoring & Analytics, Student Candidate Registration, AI-Proctoring Protocols, and Grade Generation.
+          </p>
+        </div>
+
+        <!-- System Architecture Highlights -->
+        <div class="grid-3" style="margin-top: 36px;">
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px;">
+            <div style="color: #38bdf8; font-weight: 800; font-size: 12px; margin-bottom: 4px;">👑 Master Administration</div>
+            <div style="color: #94a3b8; font-size: 10px; line-height: 1.4;">
+              3 Master Admins, Secret Master Key Gateway, Real-Time Audit Terminal & Faculty Provisioning.
+            </div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px;">
+            <div style="color: #a78bfa; font-weight: 800; font-size: 12px; margin-bottom: 4px;">👨‍🏫 Faculty Console</div>
+            <div style="color: #94a3b8; font-size: 10px; line-height: 1.4;">
+              Dr. Lt. Mrunali Sawant, MCQ Authoring, Live Scheduling & Proctoring Inspector.
+            </div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px;">
+            <div style="color: #34d399; font-weight: 800; font-size: 12px; margin-bottom: 4px;">🎓 Student Candidate Suite</div>
+            <div style="color: #94a3b8; font-size: 10px; line-height: 1.4;">
+              10 Seeded Candidates, Dual Login (Roll No / Email), Anti-Cheating Room & Instant Marksheets.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cover Bottom Metadata -->
+      <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px; display: flex; justify-content: space-between; align-items: flex-end; font-size: 10px; color: #94a3b8;">
+        <div>
+          <div><strong style="color: #ffffff;">Institutional Release:</strong> OEMS Enterprise Suite v2.0</div>
+          <div style="margin-top: 2px;">Academic Calendar: 2025–2026 Semester Cycle</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="color: #38bdf8; font-weight: 700;">ASG-IIT Main Campus</div>
+          <div style="margin-top: 2px;">Institutional Knowledge Park, Tech Zone 4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2: PORTAL ACCESS & MASTER ADMIN DIRECTORY ==================== -->
+  <div class="page">
+    <div class="section-header">
+      <h2>🏛️ Section 1: System Portal Navigation & URLs</h2>
+      <span class="section-tag">Access Architecture</span>
+    </div>
+
+    <p style="margin-bottom: 10px; color: #475569;">
+      The <strong>ASG-IIT OEMS 2.0</strong> is organized into specialized, role-segregated terminals designed for high-concurrency examination delivery and strict security isolation:
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Portal Interface</th>
+          <th>Direct Route URL</th>
+          <th>Target Role</th>
+          <th>Primary Capabilities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Main Landing Page</strong></td>
+          <td><code class="font-mono">/</code></td>
+          <td>Public / All</td>
+          <td>University identity, overview, quick navigation, portal selection cards.</td>
+        </tr>
+        <tr>
+          <td><strong>Dual Authentication Portal</strong></td>
+          <td><code class="font-mono">/login</code></td>
+          <td>Student & Faculty</td>
+          <td>Role-separated Cyan (Student) & Purple (Faculty) tabs with auto-focus.</td>
+        </tr>
+        <tr>
+          <td><strong>Student Registration Portal</strong></td>
+          <td><code class="font-mono">/register</code></td>
+          <td>Student Candidates</td>
+          <td>Public self-service candidate registration with unique Roll Number validation.</td>
+        </tr>
+        <tr>
+          <td><strong>Secret Master Admin Gateway</strong></td>
+          <td><code class="font-mono">/admin/login</code></td>
+          <td>System Administrators</td>
+          <td>Master Key protected gateway for Controller of Examinations.</td>
+        </tr>
+        <tr>
+          <td><strong>Student Candidate Dashboard</strong></td>
+          <td><code class="font-mono">/student/dashboard</code></td>
+          <td>Students</td>
+          <td>Active exam cards, single-attempt lobbies, and completed marksheet transcripts.</td>
+        </tr>
+        <tr>
+          <td><strong>Live Proctored Exam Room</strong></td>
+          <td><code class="font-mono">/student/exam/:id/take</code></td>
+          <td>Students</td>
+          <td>Synchronized timer, 4-state question palette, anti-cheating window guard.</td>
+        </tr>
+        <tr>
+          <td><strong>Official Academic Marksheet</strong></td>
+          <td><code class="font-mono">/student/results/:id</code></td>
+          <td>Students & Faculty</td>
+          <td>Instant grade calculation, pass/fail status, and printable transcript view.</td>
+        </tr>
+        <tr>
+          <td><strong>Faculty Management Console</strong></td>
+          <td><code class="font-mono">/teacher/dashboard</code></td>
+          <td>Faculty / Instructors</td>
+          <td>MCQ authoring, question pack generation, live test scheduling, and class analytics.</td>
+        </tr>
+        <tr>
+          <td><strong>Admin Activity Audit Terminal</strong></td>
+          <td><code class="font-mono">/admin/dashboard</code></td>
+          <td>Master Admins</td>
+          <td>System-wide real-time user registry, login timestamps, and faculty provisioning.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-header" style="margin-top: 18px;">
+      <h2>👑 Section 2: Master Administrator Directory & Login Guide</h2>
+      <span class="section-tag">Governance & Audits</span>
+    </div>
+
+    <div class="card card-amber">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <strong style="color: #92400e; font-size: 12px;">🔑 Authorized Master Key Protocol</strong>
+        <span class="highlight-key">Master Key: ASG-IIT-ADMIN-2026</span>
+      </div>
+      <p style="font-size: 10.5px; color: #78350f; line-height: 1.4;">
+        Administrator login strictly requires an authorized <strong>Admin Master Key</strong>. The system defaults to <code class="font-mono font-bold">ASG-IIT-ADMIN-2026</code> (backward compatible with <code class="font-mono">GGIT-ADMIN-2026</code>). Standard login attempts through public student/faculty portals are redirected to the dedicated gateway.
+      </p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Administrator Name</th>
+          <th>Official Email Address</th>
+          <th>Password</th>
+          <th>Master Key</th>
+          <th>Assigned Division</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Gagan Moolya (Admin)</strong></td>
+          <td><code class="font-mono">admin@oems.com</code></td>
+          <td><code class="font-mono">admin123</code></td>
+          <td><code class="font-mono">ASG-IIT-ADMIN-2026</code></td>
+          <td>Controller of Examinations</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Shreyas Jha (Admin)</strong></td>
+          <td><code class="font-mono">shreyas.admin@oems.com</code></td>
+          <td><code class="font-mono">admin123</code></td>
+          <td><code class="font-mono">ASG-IIT-ADMIN-2026</code></td>
+          <td>Examination Control Division</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Akash Gupta (Admin)</strong></td>
+          <td><code class="font-mono">akash.admin@oems.com</code></td>
+          <td><code class="font-mono">admin123</code></td>
+          <td><code class="font-mono">ASG-IIT-ADMIN-2026</code></td>
+          <td>Examination Control Division</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2" style="margin-top: 10px;">
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">1</span> Navigate to Admin Gateway</div>
+        <p style="font-size: 10px; color: #475569;">Open <code class="font-mono text-indigo-700">/admin/login</code> in your browser. Enter registered administrator email and password.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">2</span> Enter Master Key & Unlock</div>
+        <p style="font-size: 10px; color: #475569;">Click <strong>Auto-fill Key</strong> or input <code class="font-mono text-amber-700 font-bold">ASG-IIT-ADMIN-2026</code>. Submit to unlock the terminal.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">3</span> Audit Registered Users</div>
+        <p style="font-size: 10px; color: #475569;">View all students and faculty with real-time last-login timestamps, roll numbers, and departments.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">4</span> Authorize New Faculty</div>
+        <p style="font-size: 10px; color: #475569;">Click <strong>Authorize Faculty</strong>, enter teacher details, and allocate academic departments (BCA, BSc IT, AI).</p>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>ASG-IIT OEMS 2.0 • System Operation Manual</span>
+      <span>Page 2 of 5</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3: FACULTY PORTAL & QUESTION AUTHORING ==================== -->
+  <div class="page">
+    <div class="section-header">
+      <h2>👨‍🏫 Section 3: Faculty Examiner Portal & Operations Guide</h2>
+      <span class="section-tag">Question & Exam Control</span>
+    </div>
+
+    <div class="card card-purple">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <strong style="color: #6b21a8; font-size: 12px;">📋 Official Faculty Examiner Account</strong>
+        <span class="pill pill-purple">Department of Computer Applications (BCA)</span>
+      </div>
+      <table style="margin: 0; background: transparent;">
+        <tbody>
+          <tr style="background: transparent;">
+            <td style="border: none; padding: 2px 0;"><strong>Faculty Name:</strong> Dr. Lt. MRUNALI SAWANT</td>
+            <td style="border: none; padding: 2px 0;"><strong>Login Email:</strong> <code class="font-mono">sawantmrunali@gmail.com</code></td>
+            <td style="border: none; padding: 2px 0;"><strong>Password:</strong> <code class="font-mono font-bold">123456</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size: 12.5px; margin-top: 14px; margin-bottom: 8px; color: #1e1b4b;">Step-by-Step Examiner Workflow:</h3>
+
+    <div class="grid-2">
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">1</span> Sign In via Faculty Tab</div>
+        <p style="font-size: 10px; color: #475569;">Go to <code class="font-mono">/login</code>, click the <strong>Faculty / Teacher Portal</strong> tab (purple indicator), enter <code class="font-mono">sawantmrunali@gmail.com</code> and password <code class="font-mono">123456</code>.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">2</span> Author MCQ Question Bank</div>
+        <p style="font-size: 10px; color: #475569;">Navigate to <strong>Question Bank</strong> tab. Select subject (e.g. <code>BCA301 - DBMS</code>), type question, provide 4 options, designate correct option (0–3), and select difficulty (<code>Easy</code>, <code>Medium</code>, <code>Hard</code>).</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">3</span> Auto-Generate Question Packs</div>
+        <p style="font-size: 10px; color: #475569;">Use <strong>Generate Question Pack</strong> to instantly populate 5 curriculum-standard MCQs per core topic with pre-verified answer keys.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">4</span> Schedule & Publish Live Exams</div>
+        <p style="font-size: 10px; color: #475569;">In <strong>Create Exam</strong>, enter title, set duration (e.g. <code>30 mins</code>), passing marks, select questions from the repository, and publish. The exam instantly appears on all student terminals.</p>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 18px;">
+      <h2>📊 Section 4: Faculty Analytics & Anti-Cheating Proctoring Inspector</h2>
+      <span class="section-tag">Performance & Integrity</span>
+    </div>
+
+    <div class="grid-3" style="margin-bottom: 12px;">
+      <div class="card card-cyan" style="margin-bottom: 0; text-align: center;">
+        <div style="font-size: 9.5px; color: #0891b2; font-weight: 700; text-transform: uppercase;">Class Pass Rate</div>
+        <div style="font-size: 20px; font-weight: 900; color: #0e7490; margin: 4px 0;">88.5%</div>
+        <div style="font-size: 9.5px; color: #64748b;">Automated aggregate calculation</div>
+      </div>
+      <div class="card card-indigo" style="margin-bottom: 0; text-align: center;">
+        <div style="font-size: 9.5px; color: #4f46e5; font-weight: 700; text-transform: uppercase;">Average Class Score</div>
+        <div style="font-size: 20px; font-weight: 900; color: #3730a3; margin: 4px 0;">76.2%</div>
+        <div style="font-size: 9.5px; color: #64748b;">Based on completed attempts</div>
+      </div>
+      <div class="card card-amber" style="margin-bottom: 0; text-align: center;">
+        <div style="font-size: 9.5px; color: #d97706; font-weight: 700; text-transform: uppercase;">Proctoring Warnings</div>
+        <div style="font-size: 20px; font-weight: 900; color: #b45309; margin: 4px 0;">Real-Time</div>
+        <div style="font-size: 9.5px; color: #64748b;">Tab switch violation logs</div>
+      </div>
+    </div>
+
+    <p style="font-size: 10.5px; color: #475569; line-height: 1.4; margin-bottom: 8px;">
+      <strong>Student Submission Inspector:</strong> In the <strong>Submissions & Analytics</strong> tab, faculty can click any student submission to inspect question-by-question responses, time taken, overall grade, and exact tab-switch violation counters logged by the AI anti-cheating engine.
+    </p>
+
+    <div class="footer-bar">
+      <span>ASG-IIT OEMS 2.0 • System Operation Manual</span>
+      <span>Page 3 of 5</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4: STUDENT DIRECTORY & REGISTRATION GUIDE ==================== -->
+  <div class="page">
+    <div class="section-header">
+      <h2>🎓 Section 5: Student Candidate Directory (10 Official Accounts)</h2>
+      <span class="section-tag">Candidate Master Dataset</span>
+    </div>
+
+    <p style="margin-bottom: 8px; color: #475569;">
+      All 10 candidates are pre-seeded in the ASG-IIT Academic Database. Candidates can log in using either their <strong>University Roll Number</strong> or <strong>Institutional Email</strong> with the universal default password: <code class="font-mono font-bold">123456</code>.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Student Full Name</th>
+          <th>University Roll No</th>
+          <th>Email Address</th>
+          <th>Password</th>
+          <th>Dept</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Aarav Sharma</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">BCA202601</code></td>
+          <td><code class="font-mono">aarav.sharma@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>BCA</td>
+          <td><span class="pill pill-cyan">SY</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Riya Patel</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">BCA202602</code></td>
+          <td><code class="font-mono">riya.patel@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>BCA</td>
+          <td><span class="pill pill-cyan">SY</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Aditya Mehta</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">BCA202603</code></td>
+          <td><code class="font-mono">aditya.mehta@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>BCA</td>
+          <td><span class="pill pill-purple">TY</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Sneha Joshi</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">BCA202604</code></td>
+          <td><code class="font-mono">sneha.joshi@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>BCA</td>
+          <td><span class="pill pill-green">FY</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Rohan Verma</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">IT202601</code></td>
+          <td><code class="font-mono">rohan.verma@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>BSc IT</td>
+          <td><span class="pill pill-cyan">SY</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>Ananya Singh</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">IT202602</code></td>
+          <td><code class="font-mono">ananya.singh@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>BSc IT</td>
+          <td><span class="pill pill-purple">TY</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>Kunal Shah</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">AI202601</code></td>
+          <td><code class="font-mono">kunal.shah@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>AI</td>
+          <td><span class="pill pill-green">FY</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>Priya Desai</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">AI202602</code></td>
+          <td><code class="font-mono">priya.desai@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>AI</td>
+          <td><span class="pill pill-cyan">SY</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><strong>Yash Gupta</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">BCA202605</code></td>
+          <td><code class="font-mono">yash.gupta@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>BCA</td>
+          <td><span class="pill pill-green">FY</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><strong>Neha Kulkarni</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">BCA202606</code></td>
+          <td><code class="font-mono">neha.kulkarni@gmail.com</code></td>
+          <td><code class="font-mono">123456</code></td>
+          <td>BCA</td>
+          <td><span class="pill pill-purple">TY</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-header" style="margin-top: 16px;">
+      <h2>📝 Section 6: How to Register New Student Candidates</h2>
+      <span class="section-tag">Candidate Enrollment</span>
+    </div>
+
+    <div class="grid-2">
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">1</span> Open Candidate Registration</div>
+        <p style="font-size: 10px; color: #475569;">Visit <code class="font-mono">/register</code> from the top navigation or click <strong>Register New Account</strong> on the landing page.</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">2</span> Select Department & Year</div>
+        <p style="font-size: 10px; color: #475569;">Choose department (<span class="pill pill-cyan">BCA</span>, <span class="pill pill-purple">BSc IT</span>, or <span class="pill pill-green">AI</span>) and academic year (<span class="pill pill-green">FY</span>, <span class="pill pill-cyan">SY</span>, or <span class="pill pill-purple">TY</span>).</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">3</span> Input Full Name & Email</div>
+        <p style="font-size: 10px; color: #475569;">Enter candidate legal full name and institutional email address (e.g. <code>student@gmail.com</code> or <code>name@asg-iit.edu</code>).</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><span class="step-num">4</span> Unique Roll Number & Password</div>
+        <p style="font-size: 10px; color: #475569;">Provide a unique University Roll Number (e.g. <code>BCA202610</code>). Set a password (min 6 chars) and complete enrollment.</p>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>ASG-IIT OEMS 2.0 • System Operation Manual</span>
+      <span>Page 4 of 5</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 5: EXAMINATION ROOM, PROCTORING & MARKSHEET ==================== -->
+  <div class="page">
+    <div class="section-header">
+      <h2>🛡️ Section 7: Live Examination Room, Anti-Cheating & Auto-Submission</h2>
+      <span class="section-tag">Assessment Integrity</span>
+    </div>
+
+    <div class="grid-2" style="margin-bottom: 12px;">
+      <div class="card card-cyan" style="margin-bottom: 0;">
+        <h4 style="color: #0e7490; margin-bottom: 4px; font-size: 11px;">⏱️ Synchronized Countdown Timer</h4>
+        <p style="font-size: 10px; color: #155e75; line-height: 1.4;">
+          Real-time countdown in <code class="font-mono">MM:SS</code> format with urgent color transitions at 5 minutes. The engine automatically submits all chosen answers at <code class="font-mono font-bold">00:00:00</code>.
+        </p>
+      </div>
+
+      <div class="card card-indigo" style="margin-bottom: 0;">
+        <h4 style="color: #3730a3; margin-bottom: 4px; font-size: 11px;">🎨 4-State Interactive Question Palette</h4>
+        <p style="font-size: 10px; color: #312e81; line-height: 1.4;">
+          <strong>Green:</strong> Answered | <strong>Yellow:</strong> Flagged for Review | <strong>Gray:</strong> Unanswered | <strong>Cyan Ring:</strong> Current Question. Instant 1-click question jumping.
+        </p>
+      </div>
+    </div>
+
+    <div class="card card-amber">
+      <h4 style="color: #92400e; margin-bottom: 4px; font-size: 11px;">🚨 AI Window Proctoring & Anti-Cheating Guard (FR-OE-05)</h4>
+      <p style="font-size: 10px; color: #78350f; line-height: 1.4;">
+        Active window listener detects <strong>tab switching, window blurring, minimizing, or copying text</strong>. Any violation immediately triggers a high-priority warning modal and logs the violation timestamp and count into the candidate's official transcript audit record.
+      </p>
+    </div>
+
+    <div class="section-header" style="margin-top: 16px;">
+      <h2>📜 Section 8: Grade Evaluation & Printable Marksheet</h2>
+      <span class="section-tag">Transcript Output</span>
+    </div>
+
+    <p style="margin-bottom: 8px; color: #475569;">
+      Upon test submission, the OEMS engine computes instant scores, pass/fail status, and percentage according to ASG-IIT academic regulations:
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Percentage Range</th>
+          <th>Grade Letter</th>
+          <th>Academic Classification</th>
+          <th>Performance Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>90% – 100%</strong></td>
+          <td><code class="font-mono font-bold text-emerald-700">O</code></td>
+          <td>Outstanding</td>
+          <td><span class="pill pill-green">Pass with Distinction</span></td>
+        </tr>
+        <tr>
+          <td><strong>80% – 89%</strong></td>
+          <td><code class="font-mono font-bold text-emerald-700">A+</code></td>
+          <td>Excellent</td>
+          <td><span class="pill pill-green">First Class with Distinction</span></td>
+        </tr>
+        <tr>
+          <td><strong>70% – 79%</strong></td>
+          <td><code class="font-mono font-bold text-indigo-700">A</code></td>
+          <td>Very Good</td>
+          <td><span class="pill pill-cyan">First Class</span></td>
+        </tr>
+        <tr>
+          <td><strong>60% – 69%</strong></td>
+          <td><code class="font-mono font-bold text-cyan-700">B+</code></td>
+          <td>Good</td>
+          <td><span class="pill pill-cyan">Higher Second Class</span></td>
+        </tr>
+        <tr>
+          <td><strong>50% – 59%</strong></td>
+          <td><code class="font-mono font-bold text-amber-700">B</code></td>
+          <td>Above Average</td>
+          <td><span class="pill pill-amber">Second Class</span></td>
+        </tr>
+        <tr>
+          <td><strong>40% – 49%</strong></td>
+          <td><code class="font-mono font-bold text-amber-700">C</code></td>
+          <td>Pass Threshold</td>
+          <td><span class="pill pill-amber">Pass Class</span></td>
+        </tr>
+        <tr>
+          <td><strong>Below 40%</strong></td>
+          <td><code class="font-mono font-bold text-rose-700">F</code></td>
+          <td>Fail</td>
+          <td><span style="background: #ffe4e6; color: #9f1239; padding: 2px 7px; border-radius: 9999px; font-size: 9.5px; font-weight: 700;">Re-appear Required</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card card-indigo" style="margin-top: 10px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <strong style="color: #3730a3; font-size: 11.5px;">🖨️ Official Academic Marksheet Printing</strong>
+          <p style="font-size: 10px; color: #4338ca; margin-top: 2px;">
+            Click <strong>Print Official Marksheet</strong> on <code class="font-mono">/student/results/:id</code> to generate a print-ready semester grade report with Controller of Examinations digital verification signatures.
+          </p>
+        </div>
+        <span class="badge badge-purple" style="font-size: 10px; padding: 6px 12px;">window.print()</span>
+      </div>
+    </div>
+
+    <!-- Official Seal -->
+    <div style="margin-top: 20px; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 12px;">
+      <div style="font-size: 11px; font-weight: 800; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px;">
+        ASG-IIT • Office of the Controller of Examinations
+      </div>
+      <div style="font-size: 9.5px; color: #64748b; margin-top: 2px;">
+        Campus Contact: <code class="font-mono text-indigo-700">coe@asg-iit.edu.in</code> • Helpdesk: +91 (022) 2854-9900 • Academic Year 2025–2026
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>ASG-IIT OEMS 2.0 • System Operation Manual</span>
+      <span>Page 5 of 5</span>
+    </div>
+  </div>
+
+</body>
+</html>
